@@ -95,7 +95,7 @@ void counterspell(Spell *spell) {
 
     for (int i = 1; i <= a.length(); i++) {
       for (int j = 1; j <= b.length(); j++) {
-        if (a[i] == b[j]) {
+        if (a[i-1] == b[j-1]) {
           m[i][j] = m[i-1][j-1] + 1;
         } else {
           m[i][j] = max(m[i][j-1] , m[i-1][j]);
@@ -104,12 +104,6 @@ void counterspell(Spell *spell) {
       
     }
 
-    for (int i = 1; i <= a.length(); i++) {
-      for (int j = 1; j <= b.length(); j++) {
-        cout << m[i][j] << " ";
-      }
-      cout <<endl;
-    }
     cout << m[a.length()][b.length()] << endl;
   }
 
